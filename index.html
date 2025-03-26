@@ -12,9 +12,6 @@
       rel="stylesheet"
     />
     <style>
-
-    
-
       html,
       body {
         margin: 0;
@@ -28,12 +25,20 @@
         font-size: 1em;
         font-style: italic;
         background-image: url("background.jpg");
-        background-size: auto 100%;
+        /* Используем cover для корректного масштабирования */
+        background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: fixed;
         color: rgba(58, 109, 168, 0.9);
         text-align: center;
+      }
+
+      /* Адаптивное переопределение для мобильных устройств */
+      @media (max-width: 600px) {
+        body {
+          background-attachment: scroll;
+        }
       }
 
       .special-font {
@@ -56,7 +61,8 @@
         box-sizing: border-box;
         opacity: 0;
         transform: translateY(50px);
-        transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+        /* Увеличили время перехода и изменили функцию для плавности */
+        transition: opacity 3s ease-in-out, transform 3s ease-in-out;
       }
 
       .scroll-section.visible {
@@ -138,6 +144,10 @@
       .celebration-grid .day {
         grid-area: day;
         font-size: 5rem;
+        /* Центрирование содержимого внутри ячейки */
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .celebration-grid .time {
@@ -149,14 +159,12 @@
         grid-area: year;
         font-size: 2rem;
       }
-
     </style>
   </head>
   <body>
     <!-- Секция 1: Заголовки -->
     <div class="scroll-section">
       <div class="container">
-        <!-- Оба заголовка оформлены классом special-font -->
         <h1 class="special-font" style="font-size: 3rem;">Динара</h1>
         <h2>ҰЗАТУ ТОЙЫ</h2>
         <h2 class="top-margin">14.06.2025</h2>
@@ -183,7 +191,6 @@
         <h2 class="special-font">"DOMBYRA"</h2>
         <h2>МЕЙРАМХАНАСЫ</h2>
 
-        <!-- Блок с 2ГИС: изображение-ссылка слева, справа блок с текстом и стрелкой -->
         <div class="link-container">
           <a
             class="image-link"
@@ -193,12 +200,13 @@
             <img src="2gis-map.jpg" alt="Карта DOMBYRA BALLROOM" />
           </a>
           <div class="link-text">
-            <div><p>Ссылка на 2ГИС</p></div>
+            <div>
+              <p>Ссылка на 2ГИС</p>
+            </div>
             <div class="arrow">⇐</div>
           </div>
         </div>
 
-        <!-- Блок с информацией о празднике (ТОЙ САЛТАНАТЫ) -->
         <div class="celebration-info">
           <h2 class="special-font">ТОЙ САЛТАНАТЫ:</h2>
           <div class="celebration-grid">
@@ -248,7 +256,8 @@
 
         // Получение параметра id из URL и запрос имени
         const urlParams = new URLSearchParams(window.location.search);
-        let id = urlParams.get("id") || "b00974d5-2a4e-4f18-8511-a9b114443006";
+        let id =
+          urlParams.get("id") || "b00974d5-2a4e-4f18-8511-a9b114443006";
 
         fetch(`http://localhost:5000/names/${id}`)
           .then((response) => response.json())
