@@ -21,7 +21,6 @@
 
       body {
         font-family: "Cormorant Garamond", serif;
-        font-size: 1.25rem; /* например, базовый размер 20px, если 16px = 1rem */
         line-height: 1.5;
         font-style: italic;
         background-image: url("background.jpg");
@@ -35,7 +34,7 @@
 
       .special-font {
         font-family: "Pinyon Script", cursive;
-        font-size: 2em;
+        font-size: 2.5em;
         font-weight: 500;
       }
 
@@ -147,41 +146,6 @@
         font-size: 2rem;
       }
 
-      @media (max-width: 768px) {
-        body {
-          background-attachment: scroll;
-        }
-        .container {
-          width: 95%;
-          padding: 10px;
-        }
-
-        .link-container {
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .link-text {
-          align-items: center;
-          text-align: center;
-          margin-left: 10px; /* Отступ между картинкой и текстом */
-        }
-
-        .celebration-grid {
-          grid-template-areas:
-            "month"
-            "weekday"
-            "day"
-            "time"
-            "year";
-          grid-template-columns: 1fr;
-        }
-
-        .celebration-grid .day {
-          font-size: 3rem;
-        }
-      }
     </style>
   </head>
   <body>
