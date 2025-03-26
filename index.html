@@ -60,6 +60,9 @@
         font-weight: 600;
       }
 
+      .top-margin-low {
+        margin-top: 5px;
+      }
       .top-margin {
         margin-top: 20px;
       }
@@ -92,10 +95,12 @@
         box-sizing: border-box;
       }
 
+      .text {
+        font-size: 1.3rem;
+      }
+
       h1,
-      h2,
-      h3,
-      p {
+      div {
         margin: 10px 0;
         background: none;
         word-break: break-word;
@@ -154,8 +159,11 @@
       }
 
       .celebration-grid .day {
+        font-family: "Arial", "Helvetica", sans-serif;
         grid-area: day;
-        font-size: 5rem;
+
+        font-weight: 400;
+        font-size: 4rem;
         /* Центрирование содержимого внутри ячейки */
         display: flex;
         justify-content: center;
@@ -163,13 +171,18 @@
       }
 
       .celebration-grid .time {
+        font-family: "Arial", "Helvetica", sans-serif;
+
+        font-weight: 300;
         grid-area: time;
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
 
       .celebration-grid .year {
+        font-family: "Arial", "Helvetica", sans-serif;
+        font-weight: 200;
         grid-area: year;
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
     </style>
   </head>
@@ -178,20 +191,20 @@
     <div class="scroll-section">
       <div class="container">
         <h1 class="special-font" style="font-size: 3.5rem">Динара</h1>
-        <h2 class="top-margin">ҰЗАТУ ТОЙЫ</h2>
-        <h2 class="top-margin">14.06.2025</h2>
+        <div class="top-margin text">ҰЗАТУ ТОЙЫ</div>
+        <div class="top-margin text">14.06.2025</div>
       </div>
     </div>
 
     <!-- Секция 2: Приветствие с динамическим именем -->
-    <div class="scroll-section">
+    <div class="scroll-section" style="font-size: 0.8rem">
       <div class="container">
-        <h1 id="greeting" class="special-font">Кұрметті қонақтар!</h1>
-        <h2 class="top-margin">СІЗДЕРДІ АЯУЛЫ ҚЫЗЫМЫЗДЫҢ</h2>
-        <h2>ҰЗАТУ ТОЙЫНА АРНАЛҒАН</h2>
-        <h2>АҚ ДАСТАРХАНЫМЫЗДЫҢ</h2>
-        <h2>ҚАДІРЛІ ҚОНАҒЫ БОЛУҒА</h2>
-        <h2>ШАҚЫРАМЫЗ!</h2>
+        <h1 id="greeting" class="special-font">Құрметті қонақтар!</h1>
+        <div class="top-margin text">СІЗДЕРДІ АЯУЛЫ ҚЫЗЫМЫЗДЫҢ</div>
+        <div class="text">ҰЗАТУ ТОЙЫНА АРНАЛҒАН</div>
+        <div class="text">АҚ ДАСТАРХАНЫМЫЗДЫҢ</div>
+        <div class="text">ҚАДІРЛІ ҚОНАҒЫ БОЛУҒА</div>
+        <div class="text">ШАҚЫРАМЫЗ!</div>
       </div>
     </div>
 
@@ -199,9 +212,9 @@
     <div class="scroll-section">
       <div class="container">
         <h1 class="special-font">Мекен-жайымыз:</h1>
-        <h2>ОРАЛ ҚАЛАСЫ, АСТАНА КӨШЕСІ, 12/1</h2>
-        <h1 class="special-font">"Dombyra"</h1>
-        <h2>МЕЙРАМХАНАСЫ</h2>
+        <div class="text">ОРАЛ ҚАЛАСЫ, АСТАНА КӨШЕСІ, 12/1</div>
+        <h1 class="special-font">Dombyra</h1>
+        <div class="text">МЕЙРАМХАНАСЫ</div>
 
         <div class="link-container">
           <a
@@ -212,7 +225,7 @@
             <img src="2gis-map.jpg" alt="Карта DOMBYRA BALLROOM" />
           </a>
           <div class="link-text">
-            <div>
+            <div class="text">
               <p>Ссылка на 2ГИС</p>
             </div>
             <div class="arrow">⇐</div>
@@ -220,7 +233,7 @@
         </div>
 
         <div class="celebration-info top-margin">
-          <h2 class="special-font">Той салтанаты:</h2>
+          <div class="special-font">Той салтанаты:</div>
           <div class="celebration-grid">
             <div class="month">МАУСЫМ</div>
             <div class="weekday">СЕНБІ</div>
@@ -235,19 +248,19 @@
     <!-- Секция 4: Отдельный блок для ТОЙ ИЕЛЕРІ -->
     <div class="scroll-section">
       <div class="container">
-        <h2 class="special-font">Той иелері:</h2>
-        <h1 class="special-font">Қаймен - Лаура</h1>
+        <div class="special-font">Той иелері:</div>
+        <h1 class="special-font top-margin-low">Қаймен - Лаура</h1>
       </div>
     </div>
 
     <!-- Секция 5: ТОЙ БАҒДАРЛАМАСЫ -->
     <div class="scroll-section">
       <div class="container">
-        <h1>ТОЙ БАҒДАРЛАМАСЫ:</h1>
+        <div class="text">ТОЙ БАҒДАРЛАМАСЫ:</h1>
         <br />
-        <h2>18:00<br />ҚОНАҚТАР ЖИНАЛУЫ</h2>
+        <div class="text">18:00<br />ҚОНАҚТАР ЖИНАЛУЫ</div>
         <br />
-        <h2>19:00<br />ТОЙДЫҢ БАСТАЛУЫ</h2>
+        <div class="text">19:00<br />ТОЙДЫҢ БАСТАЛУЫ</div>
       </div>
     </div>
 
