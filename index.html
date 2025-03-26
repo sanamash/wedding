@@ -1,244 +1,292 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>API Заголовки</title>
-  <!-- Импорт шрифтов -->
-  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Variable:opsz,wght@8..144,300;8..144,400;8..144,700&display=swap" rel="stylesheet">
-  <style>
-    /* Устанавливаем базовый шрифт для всей страницы */
-    body {
-      font-family: 'Cormorant Variable', serif;
-      background-image: url('background.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      margin: 0;
-      padding: 0;
-      color: #0075a3;
-      text-align: center;
-    }
-
-    /* Классы для смены шрифта */
-    .special-font {
-      font-family: 'Italianno', cursive;
-    }
-
-    /* Отступ сверху для указанных элементов */
-    .top-margin {
-      margin-top: 20px;
-    }
-
-    /* Каждая секция занимает минимум всю высоту экрана */
-    .scroll-section {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 1.5s ease-out, transform 1.5s ease-out;
-    }
-    .scroll-section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .container {
-      max-width: 800px;
-      padding: 20px;
-      border-radius: 10px;
-      margin: 0 auto;
-    }
-
-    h1, h2, h3 {
-      margin: 10px 0;
-      background: none;
-      font-weight: 700;
-    }
-
-    /* Блок с 2ГИС: изображение-ссылка слева, справа блок с текстом и стрелкой */
-    .link-container {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      margin: 20px 0;
-    }
-    .image-link img {
-      width: 50px;
-      height: 50px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-    .link-text {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-left: 20px;
-    }
-    .link-text .arrow {
-      font-size: 1.5rem;
-      margin-top: 5px;
-    }
-
-    /* Грид для информации о празднике */
-    .celebration-grid {
-      display: grid;
-      grid-template-areas:
-        "month month month"
-        "weekday day time"
-        "year year year";
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 10px;
-      align-items: center;
-      justify-items: center;
-      margin: 20px 0;
-    }
-    .celebration-grid .month {
-      grid-area: month;
-      margin-top: 20px;
-      font-size: 2rem;
-    }
-    .celebration-grid .weekday {
-      grid-area: weekday;
-      font-size: 2rem;
-    }
-    .celebration-grid .day {
-      grid-area: day;
-      font-size: 5rem;
-    }
-    .celebration-grid .time {
-      grid-area: time;
-      font-size: 2rem;
-    }
-    .celebration-grid .year {
-      grid-area: year;
-      font-size: 2rem;
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        width: 90%;
-        padding: 10px;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Заголовки</title>
+    <!-- Импорт шрифтов -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Italianno&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Variable:opsz,wght@8..144,300;8..144,400;8..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
       }
-      .link-container {
+
+      body {
+        font-family: "Cormorant Variable", serif;
+        background-image: url("background.jpg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: rgba(58, 109, 168, 0.9);
+        text-align: center;
+      }
+
+      .special-font {
+        font-family: "Italianno", cursive;
+        font-weight: normal !important;
+      }
+
+      .top-margin {
+        margin-top: 20px;
+      }
+
+      .scroll-section {
+        min-height: 100vh;
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 1.5s ease-out, transform 1.5s ease-out;
       }
+
+      .scroll-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .container {
+        max-width: 800px;
+        width: 100%;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 10px 0;
+        background: none;
+        font-weight: 700;
+        word-break: break-word;
+      }
+
+      .link-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .image-link img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
       .link-text {
-        margin-left: 0;
-        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        text-align: left;
       }
-    }
-  </style>
-</head>
-<body>
-  <!-- Секция 1: Заголовки -->
-  <div class="scroll-section">
-    <div class="container">
-      <!-- Оба заголовка оформлены классом special-font -->
-      <h1 class="special-font">Динара</h1>
-      <h1>ҰЗАТУ ТОЙЫ</h1>
-      <h1 class="top-margin">14.06.2025</h1>
-    </div>
-  </div>
 
-  <!-- Секция 2: Приветствие с динамическим именем -->
-  <div class="scroll-section">
-    <div class="container">
-      <h2 id="greeting" class="special-font">Кұрметті қонақтар!</h2>
-      <h2 class="top-margin">СІЗДЕРДІ АЯУЛЫ ҚЫЗЫМЫЗДЫҢ</h2>
-      <h2>ҰЗАТУ ТОЙЫНА АРНАЛҒАН</h2>
-      <h2>АҚ ДАСТАРХАНЫМЫЗДЫҢ</h2>
-      <h2>ҚАДІРЛІ ҚОНАҒЫ БОЛУҒА</h2>
-      <h2>ШАҚЫРАМЫЗ!</h2>
-    </div>
-  </div>
+      .link-text .arrow {
+        font-size: 1.5rem;
+        margin-top: 5px;
+      }
 
-  <!-- Секция 3: Мекенжай и информация о заведении -->
-  <div class="scroll-section">
-    <div class="container">
-      <h2 class="special-font">МЕКЕН-ЖАЙЫМЫЗ:</h2>
-      <h2>ОРАЛ ҚАЛАСЫ, АСТАНА КӨШЕСІ, 12/1</h2>
-      <h2 class="special-font">"DOMBYRA"</h2>
-      <h2>МЕЙРАМХАНАСЫ</h2>
-      
-      <!-- Блок с 2ГИС: изображение-ссылка слева, справа блок с текстом и стрелкой -->
-      <div class="link-container">
-        <a class="image-link" href="https://2gis.com" target="_blank">
-          <img src="2gis-map.jpg" alt="Карта DOMBYRA BALLROOM">
-        </a>
-        <div class="link-text">
-          <div>Ссылка на 2ГИС</div>
-          <div class="arrow">→</div>
+      .celebration-grid {
+        display: grid;
+        grid-template-areas:
+          "month month month"
+          "weekday day time"
+          "year year year";
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 10px;
+        align-items: center;
+        justify-items: center;
+        margin: 20px 0;
+      }
+
+      .celebration-grid .month {
+        grid-area: month;
+        margin-top: 20px;
+        font-size: 2rem;
+      }
+
+      .celebration-grid .weekday {
+        grid-area: weekday;
+        font-size: 2rem;
+      }
+
+      .celebration-grid .day {
+        grid-area: day;
+        font-size: 5rem;
+      }
+
+      .celebration-grid .time {
+        grid-area: time;
+        font-size: 2rem;
+      }
+
+      .celebration-grid .year {
+        grid-area: year;
+        font-size: 2rem;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          width: 95%;
+          padding: 10px;
+        }
+
+        .link-container {
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .link-text {
+          align-items: center;
+          text-align: center;
+          margin-left: 10px; /* Отступ между картинкой и текстом */
+        }
+
+        .celebration-grid {
+          grid-template-areas:
+            "month"
+            "weekday"
+            "day"
+            "time"
+            "year";
+          grid-template-columns: 1fr;
+        }
+
+        .celebration-grid .day {
+          font-size: 3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Секция 1: Заголовки -->
+    <div class="scroll-section">
+      <div class="container">
+        <!-- Оба заголовка оформлены классом special-font -->
+        <h1 class="special-font">Динара</h1>
+        <h1>ҰЗАТУ ТОЙЫ</h1>
+        <h1 class="top-margin">14.06.2025</h1>
+      </div>
+    </div>
+
+    <!-- Секция 2: Приветствие с динамическим именем -->
+    <div class="scroll-section">
+      <div class="container">
+        <h2 id="greeting" class="special-font">Кұрметті қонақтар!</h2>
+        <h2 class="top-margin">СІЗДЕРДІ АЯУЛЫ ҚЫЗЫМЫЗДЫҢ</h2>
+        <h2>ҰЗАТУ ТОЙЫНА АРНАЛҒАН</h2>
+        <h2>АҚ ДАСТАРХАНЫМЫЗДЫҢ</h2>
+        <h2>ҚАДІРЛІ ҚОНАҒЫ БОЛУҒА</h2>
+        <h2>ШАҚЫРАМЫЗ!</h2>
+      </div>
+    </div>
+
+    <!-- Секция 3: Мекенжай и информация о заведении -->
+    <div class="scroll-section">
+      <div class="container">
+        <h2 class="special-font">МЕКЕН-ЖАЙЫМЫЗ:</h2>
+        <h2>ОРАЛ ҚАЛАСЫ, АСТАНА КӨШЕСІ, 12/1</h2>
+        <h2 class="special-font">"DOMBYRA"</h2>
+        <h2>МЕЙРАМХАНАСЫ</h2>
+
+        <!-- Блок с 2ГИС: изображение-ссылка слева, справа блок с текстом и стрелкой -->
+        <div class="link-container">
+          <a
+            class="image-link"
+            href="https://2gis.kz/uralsk/firm/70000001068813332"
+            target="_blank"
+          >
+            <img src="2gis-map.jpg" alt="Карта DOMBYRA BALLROOM" />
+          </a>
+          <div class="link-text">
+            <div>Ссылка на 2ГИС</div>
+            <div class="arrow">→</div>
+          </div>
+        </div>
+
+        <!-- Блок с информацией о празднике (ТОЙ САЛТАНАТЫ) -->
+        <div class="celebration-info">
+          <h2 class="special-font">ТОЙ САЛТАНАТЫ:</h2>
+          <div class="celebration-grid">
+            <div class="month">МАУСЫМ</div>
+            <div class="weekday">СЕНБІ</div>
+            <div class="day">14</div>
+            <div class="time">18:00</div>
+            <div class="year">2024</div>
+          </div>
         </div>
       </div>
-      
-      <!-- Блок с информацией о празднике (ТОЙ САЛТАНАТЫ) -->
-      <div class="celebration-info">
-        <h2 class="special-font">ТОЙ САЛТАНАТЫ:</h2>
-        <div class="celebration-grid">
-          <div class="month">ЖЕЛТОҚСАН</div>
-          <div class="weekday">СЕНБІ</div>
-          <div class="day">14</div>
-          <div class="time">18:00</div>
-          <div class="year">2024</div>
-        </div>
+    </div>
+
+    <!-- Секция 4: Отдельный блок для ТОЙ ИЕЛЕРІ -->
+    <div class="scroll-section">
+      <div class="container">
+        <h2 class="special-font">ТОЙ ИЕЛЕРІ:</h2>
+        <h2 class="special-font">Қаймен - Лаура</h2>
       </div>
     </div>
-  </div>
 
-  <!-- Секция 4: Отдельный блок для ТОЙ ИЕЛЕРІ -->
-  <div class="scroll-section">
-    <div class="container">
-      <h2 class="special-font">ТОЙ ИЕЛЕРІ:</h2>
-      <h2 class="special-font">Ері - Найла</h2>
+    <!-- Секция 5: ТОЙ БАҒДАРЛАМАСЫ -->
+    <div class="scroll-section">
+      <div class="container">
+        <h2>ТОЙ БАҒДАРЛАМАСЫ:</h2>
+        <br />
+        <h3>18:00<br />ҚОНАҚТАР ЖИНАЛУЫ</h3>
+        <br />
+        <h3>19:00<br />ТОЙДЫҢ БАСТАЛУЫ</h3>
+      </div>
     </div>
-  </div>
 
-  <!-- Секция 5: ТОЙ БАҒДАРЛАМАСЫ -->
-  <div class="scroll-section">
-    <div class="container">
-      <h2>ТОЙ БАҒДАРЛАМАСЫ:</h2>
-      <br>
-      <h3>18:00<br>ҚОНАҚТАР ЖИНАЛУЫ</h3>
-      <br>
-      <h3>19:00<br>ТОЙДЫҢ БАСТАЛУЫ</h3>
-    </div>
-  </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Анимация появления при прокрутке
+        function revealOnScroll() {
+          const sections = document.querySelectorAll(".scroll-section");
+          sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.85) {
+              section.classList.add("visible");
+            }
+          });
+        }
+        revealOnScroll();
+        document.addEventListener("scroll", revealOnScroll);
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Анимация появления при прокрутке
-      function revealOnScroll() {
-        const sections = document.querySelectorAll(".scroll-section");
-        sections.forEach(section => {
-          const rect = section.getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.85) {
-            section.classList.add("visible");
-          }
-        });
-      }
-      revealOnScroll();
-      document.addEventListener("scroll", revealOnScroll);
+        // Получение параметра id из URL и запрос имени
+        const urlParams = new URLSearchParams(window.location.search);
+        let id = urlParams.get("id") || "b00974d5-2a4e-4f18-8511-a9b114443006";
 
-      // Получение параметра id из URL и запрос имени
-      const urlParams = new URLSearchParams(window.location.search);
-      let id = urlParams.get('id') || 'b00974d5-2a4e-4f18-8511-a9b114443006';
-
-      fetch(`http://localhost:5000/names/${id}`)
-        .then(response => response.json())
-        .then(data => {
-          const greetingEl = document.getElementById('greeting');
-          if (greetingEl && data.name) {
-            greetingEl.innerText = `Кұрметті ${data.name}!`;
-          }
-        })
-        .catch(error => console.error('Ошибка получения имени:', error));
-    });
-  </script>
-</body>
+        fetch(`http://localhost:5000/names/${id}`)
+          .then((response) => response.json())
+          .then((data) => {
+            const greetingEl = document.getElementById("greeting");
+            if (greetingEl && data.name) {
+              greetingEl.innerText = `Кұрметті ${data.name}!`;
+            }
+          })
+          .catch((error) => console.error("Ошибка получения имени:", error));
+      });
+    </script>
+  </body>
 </html>
