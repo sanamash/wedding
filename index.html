@@ -19,19 +19,30 @@
         height: 100%;
       }
 
+      /* Удаляем фон из body */
       body {
+        margin: 0;
+        padding: 0;
         font-family: "Cormorant Garamond", serif;
         line-height: 1.5;
+        font-weight: 200;
         font-size: 1em;
         font-style: italic;
-        background-image: url("background.jpg");
-        /* Используем cover для корректного масштабирования */
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
         color: rgba(58, 109, 168, 0.9);
         text-align: center;
+      }
+
+      /* Псевдоэлемент для фонового изображения */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("background.jpg") no-repeat center center;
+        background-size: cover;
+        z-index: -1;
       }
 
       /* Адаптивное переопределение для мобильных устройств */
@@ -165,7 +176,7 @@
     <!-- Секция 1: Заголовки -->
     <div class="scroll-section">
       <div class="container">
-        <h1 class="special-font" style="font-size: 3rem;">Динара</h1>
+        <h1 class="special-font" style="font-size: 3rem">Динара</h1>
         <h2>ҰЗАТУ ТОЙЫ</h2>
         <h2 class="top-margin">14.06.2025</h2>
       </div>
@@ -256,8 +267,7 @@
 
         // Получение параметра id из URL и запрос имени
         const urlParams = new URLSearchParams(window.location.search);
-        let id =
-          urlParams.get("id") || "b00974d5-2a4e-4f18-8511-a9b114443006";
+        let id = urlParams.get("id") || "b00974d5-2a4e-4f18-8511-a9b114443006";
 
         fetch(`http://localhost:5000/names/${id}`)
           .then((response) => response.json())
