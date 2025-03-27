@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Pinyon+Script&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Pinyon+Script&family=Cinzel:wght@400..90&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -18,15 +18,15 @@
         padding: 0;
         height: 100%;
       }
-      
+
       .top-margin {
         margin-top: 20px;
       }
-      
+
       .top-margin-low {
         margin-top: 5px;
       }
-      
+
       /* Основной стиль для body без фонового изображения */
       body {
         font-family: "Cormorant", serif;
@@ -36,7 +36,7 @@
         color: rgba(58, 109, 168, 0.9);
         text-align: center;
       }
-      
+
       /* Псевдоэлемент для фонового изображения */
       body::before {
         content: "";
@@ -49,20 +49,20 @@
         background-size: cover;
         z-index: -1;
       }
-      
+
       /* Адаптивное переопределение для мобильных устройств */
       @media (max-width: 600px) {
         body {
           background-attachment: scroll;
         }
       }
-      
+
       .special-font {
         font-family: "Pinyon Script", cursive;
         font-size: 2em;
         font-weight: 600;
       }
-      
+
       .scroll-section {
         min-height: 100vh;
         display: flex;
@@ -75,12 +75,12 @@
         transform: translateY(50px);
         transition: opacity 3s ease-in-out, transform 3s ease-in-out;
       }
-      
+
       .scroll-section.visible {
         opacity: 1;
         transform: translateY(0);
       }
-      
+
       .container {
         max-width: 800px;
         width: 100%;
@@ -89,19 +89,24 @@
         margin: 0 auto;
         box-sizing: border-box;
       }
-      
+
       .text {
         font-size: 1.3rem;
         font-weight: 500;
       }
-      
+
+      .number {
+        font-family: "Cinzel", serif;
+        font-weight: 400;
+        font-style: normal;
+      }
       h1,
       div {
         margin: 10px 0;
         background: none;
         word-break: break-word;
       }
-      
+
       .link-container {
         display: flex;
         flex-wrap: wrap;
@@ -110,14 +115,14 @@
         gap: 15px;
         margin: 20px 0;
       }
-      
+
       .image-link img {
         width: 60px;
         height: 60px;
         object-fit: cover;
         border-radius: 10px;
       }
-      
+
       .link-text {
         display: flex;
         flex-direction: column;
@@ -125,12 +130,12 @@
         justify-content: center;
         text-align: left;
       }
-      
+
       .link-text .arrow {
         font-size: 1.5rem;
         margin-top: 5px;
       }
-      
+
       .celebration-grid {
         display: grid;
         grid-template-areas:
@@ -143,17 +148,17 @@
         justify-items: center;
         margin: 20px 0;
       }
-      
+
       .celebration-grid .month {
         grid-area: month;
         font-size: 2rem;
       }
-      
+
       .celebration-grid .weekday {
         grid-area: weekday;
         font-size: 2rem;
       }
-      
+
       .celebration-grid .day {
         grid-area: day;
         font-family: "Arial", "Helvetica", sans-serif;
@@ -163,14 +168,14 @@
         justify-content: center;
         align-items: center;
       }
-      
+
       .celebration-grid .time {
         grid-area: time;
         font-family: "Arial", "Helvetica", sans-serif;
         font-weight: 300;
         font-size: 1.5rem;
       }
-      
+
       .celebration-grid .year {
         grid-area: year;
         font-family: "Arial", "Helvetica", sans-serif;
@@ -183,14 +188,14 @@
     <!-- Секция 1: Заголовки -->
     <div class="scroll-section">
       <div class="container">
-        <h1 class="special-font" style="font-size: 3.5rem;">Динара</h1>
+        <h1 class="special-font" style="font-size: 3.5rem">Динара</h1>
         <div class="top-margin text">ҰЗАТУ ТОЙЫ</div>
         <div class="top-margin text">14.06.2025</div>
       </div>
     </div>
-    
+
     <!-- Секция 2: Приветствие с динамическим именем -->
-    <div class="scroll-section" style="font-size: 0.8rem;">
+    <div class="scroll-section" style="font-size: 0.8rem">
       <div class="container">
         <h1 id="greeting" class="special-font">Құрметті қонақтар!</h1>
         <div class="top-margin text">СІЗДЕРДІ АЯУЛЫ ҚЫЗЫМЫЗДЫҢ</div>
@@ -200,7 +205,7 @@
         <div class="text">ШАҚЫРАМЫЗ!</div>
       </div>
     </div>
-    
+
     <!-- Секция 3: Мекенжай и информация о заведении -->
     <div class="scroll-section">
       <div class="container">
@@ -208,7 +213,7 @@
         <div class="text">ОРАЛ ҚАЛАСЫ, АСТАНА КӨШЕСІ, 12/1</div>
         <h1 class="special-font">Домбра</h1>
         <div class="text">МЕЙРАМХАНАСЫ</div>
-    
+
         <div class="link-container">
           <a
             class="image-link"
@@ -224,20 +229,20 @@
             <div class="arrow">⇐</div>
           </div>
         </div>
-    
+
         <div class="celebration-info top-margin">
           <div class="special-font">Той салтанаты:</div>
           <div class="celebration-grid">
             <div class="month">МАУСЫМ</div>
             <div class="weekday">СЕНБІ</div>
-            <div class="day">14</div>
-            <div class="time">18:00</div>
-            <div class="year">2025</div>
+            <div class="day number">14</div>
+            <div class="time number">18:00</div>
+            <div class="year number">2025</div>
           </div>
         </div>
       </div>
     </div>
-    
+
     <!-- Секция 4: Отдельный блок для ТОЙ ИЕЛЕРІ -->
     <div class="scroll-section">
       <div class="container">
@@ -245,17 +250,19 @@
         <h1 class="special-font top-margin-low">Қаймен - Лаура</h1>
       </div>
     </div>
-    
+
     <!-- Секция 5: ТОЙ БАҒДАРЛАМАСЫ -->
     <div class="scroll-section">
       <div class="container">
         <div class="text">ТОЙ БАҒДАРЛАМАСЫ:</div>
         <br />
-        <div class="text">18:00<br />ҚОНАҚТАР ЖИНАЛУЫ</div>
-        <div class="text">19:00<br />ТОЙДЫҢ БАСТАЛУЫ</div>
+        <div class="number">18:00</div>
+        <div class="text">ҚОНАҚТАР ЖИНАЛУЫ</div>
+        <div class="number">19:00</div>
+        <div class="text">ТОЙДЫҢ БАСТАЛУЫ</div>
       </div>
     </div>
-    
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         // Анимация появления при прокрутке
@@ -270,11 +277,11 @@
         }
         revealOnScroll();
         document.addEventListener("scroll", revealOnScroll);
-    
+
         // Получение параметра id из URL и запрос имени
         const urlParams = new URLSearchParams(window.location.search);
         let id = urlParams.get("id") || "b00974d5-2a4e-4f18-8511-a9b114443006";
-    
+
         fetch(`http://localhost:5000/names/${id}`)
           .then((response) => response.json())
           .then((data) => {
@@ -283,9 +290,7 @@
               greetingEl.innerText = `Кұрметті ${data.name}!`;
             }
           })
-          .catch((error) =>
-            console.error("Ошибка получения имени:", error)
-          );
+          .catch((error) => console.error("Ошибка получения имени:", error));
       });
     </script>
   </body>
