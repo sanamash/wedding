@@ -216,11 +216,7 @@
         <div class="text">МЕЙРАМХАНАСЫ</div>
 
         <div class="link-container">
-          <a
-            href="#"
-            class="image-link"
-            onclick="open2GisSmart(); return false;"
-          >
+          <a href="#" class="image-link" onclick="open2Gis(); return false;">
             <img
               src="2gis-map.jpg"
               alt="Карта DOMBYRA BALLROOM"
@@ -266,22 +262,27 @@
     </div>
 
     <script>
-      function open2GisSmart() {
+      function open2Gis() {
         const appLink = "dgis://2gis.ru/uralsk/firm/70000001068813332";
         const webLink = "https://2gis.kz/uralsk/firm/70000001068813332";
+        let hidden = false;
 
-        // Попытка открыть приложение через iframe
-        const iframe = document.createElement("iframe");
-        iframe.style.display = "none";
-        iframe.src = appLink;
-        document.body.appendChild(iframe);
+        // Если пользователь покинул вкладку (например, открылось приложение) — не делаем редирект
+        const onVisibilityChange = () => {
+          if (document.hidden) {
+            hidden = true;
+          }
+        };
 
-        // Если через 1.5 сек пользователь не ушёл — покажем предложение
+        document.addEventListener("visibilitychange", onVisibilityChange);
+
+        // Пытаемся открыть приложение
+        window.location = appLink;
+
+        // Через 1.5 секунды проверяем: если пользователь остался — перекидываем в веб
         setTimeout(() => {
-          const confirmed = confirm(
-            "Қосымша ашылмады. 2ГИС сайтқа өтуге бола ма?"
-          );
-          if (confirmed) {
+          document.removeEventListener("visibilitychange", onVisibilityChange);
+          if (!hidden) {
             window.open(webLink, "_blank");
           }
         }, 1500);
