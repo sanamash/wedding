@@ -216,12 +216,14 @@
         <div class="text">МЕЙРАМХАНАСЫ</div>
 
         <div class="link-container">
-          <a
-            class="image-link"
-            href="#"
-            onclick="window.location='dgis://2gis.ru/uralsk/firm/70000001068813332'; setTimeout(() => { window.location='https://2gis.kz/uralsk/firm/70000001068813332'; }, 1000); return false;"
-          >
-            <img src="2gis-map.jpg" alt="Карта DOMBYRA BALLROOM" />
+          <a href="#" class="image-link" onclick="openIn2GIS(); return false;">
+            <img
+              src="2gis-map.jpg"
+              alt="Карта DOMBYRA BALLROOM"
+              width="60"
+              height="60"
+              style="border-radius: 10px"
+            />
           </a>
           <div class="link-text">
             <div class="text">
@@ -260,6 +262,22 @@
     </div>
 
     <script>
+      function openIn2GIS() {
+        const now = Date.now();
+
+        // Пытаемся открыть приложение
+        window.location = "dgis://2gis.ru/uralsk/firm/70000001068813332";
+
+        // Через 1.5 секунды проверим, ушёл ли пользователь
+        setTimeout(() => {
+          const elapsed = Date.now() - now;
+          if (elapsed < 1600) {
+            // Если пользователь остался — значит приложение не открылось
+            window.location = "https://2gis.kz/uralsk/firm/70000001068813332";
+          }
+        }, 1500);
+      }
+
       document.addEventListener("DOMContentLoaded", function () {
         // Анимация появления при прокрутке
         function revealOnScroll() {
