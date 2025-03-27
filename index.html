@@ -270,19 +270,19 @@
         const appLink = "dgis://2gis.ru/uralsk/firm/70000001068813332";
         const webLink = "https://2gis.kz/uralsk/firm/70000001068813332";
 
-        // Открываем новую вкладку сразу (в фоновом режиме)
-        const newTab = window.open("", "_blank");
-
-        // Пробуем открыть приложение
+        // Попытка открыть приложение через iframe
         const iframe = document.createElement("iframe");
         iframe.style.display = "none";
         iframe.src = appLink;
         document.body.appendChild(iframe);
 
-        // Через 1.5 секунды в открытую вкладку загружаем сайт, если пользователь не ушёл в приложение
+        // Если через 1.5 сек пользователь не ушёл — покажем предложение
         setTimeout(() => {
-          if (newTab) {
-            newTab.location = webLink;
+          const confirmed = confirm(
+            "Қосымша ашылмады. 2ГИС сайтқа өтуге бола ма?"
+          );
+          if (confirmed) {
+            window.open(webLink, "_blank");
           }
         }, 1500);
       }
